@@ -45,6 +45,12 @@ ansible::test::role() {
     roles:
       - \""${TARGETS}"\"
     """ | tee -a deploy.yml
+  if [[ ! -z "${VARS}" ]]; then
+    echo -e """
+    vars:
+      ${VARS}
+    """ | tee -a deploy.yml
+  fi
 
   # execute playbook
   ansible-playbook  --connection=local --limit localhost deploy.yml
@@ -59,7 +65,7 @@ ansible::test::playbook() {
   echo -e "[${GROUP}]\n${HOSTS} ansible_python_interpreter=/usr/bin/python3 ansible_connection=local ansible_host=127.0.0.1" | tee host.ini
 
   # execute playbook
-  ansible-playbook --connection=local --inventory host.ini ${TARGETS} 
+  ansible-playbook --connection=local --inventory host.ini ${TARGETS}
 }
 
 # make sure git is up to date

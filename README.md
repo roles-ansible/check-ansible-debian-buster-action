@@ -41,6 +41,7 @@ jobs:
         #   the group you that we write in our hosts file.
         #   example:
         #   group: 'servers'
+        #
         # hosts: ""
         #  [optional]
         #   When testing playbooks you have to give one example
@@ -50,7 +51,8 @@ jobs:
         #   some examples:
         #   hosts: 'localhost'
         #   hosts: 'srv01.example.com'
-        # requirements
+        #
+        # requirements: ""
         #  [optional]
         #   When testing playbooks and you are using ansible galaxy,
         #   you may be interested in installing your requirements
@@ -59,6 +61,16 @@ jobs:
         #   requirements: 'do1jlr.ansible_version'
         #   or your requiements.yml file.
         #   requirements: 'requirements.yml'
+        #
+        # vars: ""
+        #  [optional]
+        #   Some of your test scenarios require custom variables.
+        #   You can set them like this:
+        #   vars: "foo: bar"
+        #   You can also use usual bash formating features like '\n'
+        #   currently you need 6 leading spaces for each new line.
+        #   > You are welcome to help us impove that!
+        #   vars: "foo: bar\n      fnord:\n        value: bar"
 ```
 
 Alternatively, you can run the ansible check only on certain branches:
