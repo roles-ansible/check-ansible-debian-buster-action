@@ -1,5 +1,7 @@
 FROM debian:buster
 
+RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
+
 LABEL "maintainer"="L3D <l3d@c3woc.de>"
 LABEL "repository"="https://github.com/roles-ansible/check-ansible-debian-buster-action.git"
 LABEL "homepage"="https://github.com/roles-ansible/check-ansible-debian-buster-action"

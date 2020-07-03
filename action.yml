@@ -2,7 +2,7 @@ name: Check Ansible Debian buster
 description: Check your ansible role or playbook with the debian:buster docker container
 author: L3D <l3d@c3woc.de>
 
-inputs: 
+inputs:
   targets:
     description: |
       Paths to the ansible role or playbook you want to be tested.
@@ -33,6 +33,13 @@ inputs:
       or your requiements.yml file.
       -> e.g. 'requirements.yml'
     required: false
+  vars:
+    description: |
+      Some of your test scenarios require custom variables.
+      You can set them like this
+      -> e.g. "foo: bar"
+    required: false
+
 runs:
   using: docker
   image: Dockerfile
@@ -41,6 +48,7 @@ runs:
     HOSTS: ${{ inputs.hosts }}
     GROUP: ${{ inputs.group }}
     REQUIREMENTS: ${{ inputs.requirements }}
+    VARS: ${{ inputs.vars }}
 branding:
-  icon: 'aperture' 
+  icon: 'aperture'
   color: 'green'
