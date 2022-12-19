@@ -69,6 +69,7 @@ ansible::test::playbook() {
 }
 
 # make sure git is up to date
+git config --global --add safe.directory "${GITHUB_WORKSPACE}"
 git submodule update --init --recursive
 if [[ "${REQUIREMENTS}" == *.yml ]]
 then
