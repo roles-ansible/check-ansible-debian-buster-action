@@ -1,3 +1,4 @@
+# hadolint ignore=DL3007
 FROM debian:buster
 
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
@@ -21,9 +22,8 @@ RUN apt-get update -y && apt-get install -y \
     git \
     systemd
 
-RUN pip3 install setuptools && pip3 install ansible
+RUN pip3 install setuptools && pip3 install ansible \
+    && ansible --version
 
-RUN ansible --version
-
-ADD ansible-docker.sh /ansible-docker.sh
+COPY ansible-docker.sh /ansible-docker.sh
 ENTRYPOINT ["/ansible-docker.sh"]
