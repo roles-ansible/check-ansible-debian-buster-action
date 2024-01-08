@@ -24,7 +24,6 @@ forks = 20
 fact_caching = jsonfile
 fact_caching_connection = $HOME/facts
 fact_caching_timeout = 7200
-stdout_callback = yaml
 ansible_python_interpreter=/usr/bin/python3
 ansible_connection=local
 """ | tee ansible.cfg

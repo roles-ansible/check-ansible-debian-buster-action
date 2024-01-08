@@ -21,7 +21,7 @@ RUN apt-get update -y && apt-get install -y \
     git \
     systemd
 
-RUN pip3 install setuptools && pip3 install ansible
+RUN pip3 install setuptools && pip3 install ansible-core
 
 RUN ansible --version
 
